@@ -1,0 +1,290 @@
+{
+ "emision": "2026-11",
+ "emitido": "2026-11-16",
+ "corridas": 19870,
+ "tamanoEfectivo": 1129,
+ "filas": [
+  {
+   "id": "Y@2027-02",
+   "variable": "Y",
+   "nombre": "Ingresos anualizados de OpenAI y Anthropic",
+   "unidad": "mil M USD/año",
+   "resuelve": "Epoch AI, seguimiento de ingresos de laboratorios",
+   "url": "https://epoch.ai/gradient-updates/an-update-on-ais-most-important-number",
+   "fecha": "2027-02",
+   "p10": 159.4,
+   "p50": 211,
+   "p90": 299.9,
+   "escenarios": {
+    "kwa-2032": 191.3,
+    "ai-2027": 275.4,
+    "ai-futures-2026": 181.6,
+    "plan-a-2040": 246.8,
+    "rsi-economia": 185.5,
+    "tecnologia-normal": 141.8,
+    "cuello-de-computo": 192
+   }
+  },
+  {
+   "id": "eciGain@2027-02",
+   "variable": "eciGain",
+   "nombre": "Puntos ganados por la frontera del ECI desde el 16-nov-2026",
+   "unidad": "puntos",
+   "resuelve": "Epoch Capabilities Index, modelo de frontera",
+   "url": "https://epoch.ai/trends",
+   "fecha": "2027-02",
+   "p10": 3.634,
+   "p50": 4.585,
+   "p90": 6.441,
+   "escenarios": {
+    "kwa-2032": 3.941,
+    "ai-2027": 4.808,
+    "ai-futures-2026": 5.559,
+    "plan-a-2040": 4.06,
+    "rsi-economia": 4.63,
+    "tecnologia-normal": 2.876,
+    "cuello-de-computo": 3.009
+   }
+  },
+  {
+   "id": "slopeRatio@2027-02",
+   "variable": "slopeRatio",
+   "nombre": "Pendiente de capacidades desde oct-2025 sobre la de 2024–2025",
+   "unidad": "×",
+   "resuelve": "Próxima evaluación de METR o system card con AECI",
+   "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+   "fecha": "2027-02",
+   "p10": 1.588,
+   "p50": 1.961,
+   "p90": 2.433,
+   "escenarios": {
+    "kwa-2032": 1.885,
+    "ai-2027": 2.002,
+    "ai-futures-2026": 2.055,
+    "plan-a-2040": 1.926,
+    "rsi-economia": 2.035,
+    "tecnologia-normal": 1.863,
+    "cuello-de-computo": 1.848
+   }
+  },
+  {
+   "id": "C@2027-02",
+   "variable": "C",
+   "nombre": "Cómputo mundial de IA en operación",
+   "unidad": "M H100e",
+   "resuelve": "Epoch AI, ventas de chips con un trimestre de rezago",
+   "url": "https://epoch.ai/gradient-updates/frontier-labs-dont-use-most-ai-compute",
+   "fecha": "2027-02",
+   "p10": 37.38,
+   "p50": 39.9,
+   "p90": 42.85,
+   "escenarios": {
+    "kwa-2032": 46.91,
+    "ai-2027": 39.86,
+    "ai-futures-2026": 41.81,
+    "plan-a-2040": 41.23,
+    "rsi-economia": 41.72,
+    "tecnologia-normal": 42,
+    "cuello-de-computo": 42.28
+   }
+  },
+  {
+   "id": "accel3@2027-02",
+   "variable": "accel3",
+   "nombre": "Se informa una pendiente de capacidades de 3× o más sobre la de 2024–2025",
+   "unidad": "probabilidad",
+   "resuelve": "Próxima evaluación de METR o system card con AECI",
+   "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+   "fecha": "2027-02",
+   "prob": 0.01243
+  },
+  {
+   "id": "Y@2027-05",
+   "variable": "Y",
+   "nombre": "Ingresos anualizados de OpenAI y Anthropic",
+   "unidad": "mil M USD/año",
+   "resuelve": "Epoch AI, seguimiento de ingresos de laboratorios",
+   "url": "https://epoch.ai/gradient-updates/an-update-on-ais-most-important-number",
+   "fecha": "2027-05",
+   "p10": 196.9,
+   "p50": 277.3,
+   "p90": 426.4,
+   "escenarios": {
+    "kwa-2032": 241,
+    "ai-2027": 379.4,
+    "ai-futures-2026": 230.3,
+    "plan-a-2040": 345.9,
+    "rsi-economia": 230.9,
+    "tecnologia-normal": 164.3,
+    "cuello-de-computo": 242.1
+   }
+  },
+  {
+   "id": "eciGain@2027-05",
+   "variable": "eciGain",
+   "nombre": "Puntos ganados por la frontera del ECI desde el 16-nov-2026",
+   "unidad": "puntos",
+   "resuelve": "Epoch Capabilities Index, modelo de frontera",
+   "url": "https://epoch.ai/trends",
+   "fecha": "2027-05",
+   "p10": 7.37,
+   "p50": 9.517,
+   "p90": 15.06,
+   "escenarios": {
+    "kwa-2032": 7.862,
+    "ai-2027": 10.29,
+    "ai-futures-2026": 12.74,
+    "plan-a-2040": 8.299,
+    "rsi-economia": 10.42,
+    "tecnologia-normal": 5.73,
+    "cuello-de-computo": 5.871
+   }
+  },
+  {
+   "id": "slopeRatio@2027-05",
+   "variable": "slopeRatio",
+   "nombre": "Pendiente de capacidades desde oct-2025 sobre la de 2024–2025",
+   "unidad": "×",
+   "resuelve": "Próxima evaluación de METR o system card con AECI",
+   "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+   "fecha": "2027-05",
+   "p10": 1.629,
+   "p50": 2.075,
+   "p90": 2.763,
+   "escenarios": {
+    "kwa-2032": 1.876,
+    "ai-2027": 2.107,
+    "ai-futures-2026": 2.258,
+    "plan-a-2040": 1.954,
+    "rsi-economia": 2.206,
+    "tecnologia-normal": 1.843,
+    "cuello-de-computo": 1.809
+   }
+  },
+  {
+   "id": "C@2027-05",
+   "variable": "C",
+   "nombre": "Cómputo mundial de IA en operación",
+   "unidad": "M H100e",
+   "resuelve": "Epoch AI, ventas de chips con un trimestre de rezago",
+   "url": "https://epoch.ai/gradient-updates/frontier-labs-dont-use-most-ai-compute",
+   "fecha": "2027-05",
+   "p10": 44.93,
+   "p50": 48.8,
+   "p90": 53.48,
+   "escenarios": {
+    "kwa-2032": 59.57,
+    "ai-2027": 48.82,
+    "ai-futures-2026": 51.75,
+    "plan-a-2040": 50.88,
+    "rsi-economia": 51.62,
+    "tecnologia-normal": 52.01,
+    "cuello-de-computo": 50.89
+   }
+  },
+  {
+   "id": "accel3@2027-05",
+   "variable": "accel3",
+   "nombre": "Se informa una pendiente de capacidades de 3× o más sobre la de 2024–2025",
+   "unidad": "probabilidad",
+   "resuelve": "Próxima evaluación de METR o system card con AECI",
+   "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+   "fecha": "2027-05",
+   "prob": 0.06976
+  },
+  {
+   "id": "Y@2027-11",
+   "variable": "Y",
+   "nombre": "Ingresos anualizados de OpenAI y Anthropic",
+   "unidad": "mil M USD/año",
+   "resuelve": "Epoch AI, seguimiento de ingresos de laboratorios",
+   "url": "https://epoch.ai/gradient-updates/an-update-on-ais-most-important-number",
+   "fecha": "2027-11",
+   "p10": 281.4,
+   "p50": 436,
+   "p90": 760.1,
+   "escenarios": {
+    "kwa-2032": 351.3,
+    "ai-2027": 627.4,
+    "ai-futures-2026": 368.4,
+    "plan-a-2040": 606.8,
+    "rsi-economia": 330.5,
+    "tecnologia-normal": 206.9,
+    "cuello-de-computo": 352
+   }
+  },
+  {
+   "id": "eciGain@2027-11",
+   "variable": "eciGain",
+   "nombre": "Puntos ganados por la frontera del ECI desde el 16-nov-2026",
+   "unidad": "puntos",
+   "resuelve": "Epoch Capabilities Index, modelo de frontera",
+   "url": "https://epoch.ai/trends",
+   "fecha": "2027-11",
+   "p10": 15.1,
+   "p50": 21.01,
+   "p90": 70.99,
+   "escenarios": {
+    "kwa-2032": 15.68,
+    "ai-2027": 97.33,
+    "ai-futures-2026": 35.68,
+    "plan-a-2040": 17.4,
+    "rsi-economia": 29.36,
+    "tecnologia-normal": 11.25,
+    "cuello-de-computo": 11.13
+   }
+  },
+  {
+   "id": "slopeRatio@2027-11",
+   "variable": "slopeRatio",
+   "nombre": "Pendiente de capacidades desde oct-2025 sobre la de 2024–2025",
+   "unidad": "×",
+   "resuelve": "Próxima evaluación de METR o system card con AECI",
+   "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+   "fecha": "2027-11",
+   "p10": 1.731,
+   "p50": 2.282,
+   "p90": 4.828,
+   "escenarios": {
+    "kwa-2032": 1.863,
+    "ai-2027": 6.655,
+    "ai-futures-2026": 2.998,
+    "plan-a-2040": 2.026,
+    "rsi-economia": 2.901,
+    "tecnologia-normal": 1.804,
+    "cuello-de-computo": 1.727
+   }
+  },
+  {
+   "id": "C@2027-11",
+   "variable": "C",
+   "nombre": "Cómputo mundial de IA en operación",
+   "unidad": "M H100e",
+   "resuelve": "Epoch AI, ventas de chips con un trimestre de rezago",
+   "url": "https://epoch.ai/gradient-updates/frontier-labs-dont-use-most-ai-compute",
+   "fecha": "2027-11",
+   "p10": 65.25,
+   "p50": 73.62,
+   "p90": 84.17,
+   "escenarios": {
+    "kwa-2032": 96.06,
+    "ai-2027": 73.23,
+    "ai-futures-2026": 79.69,
+    "plan-a-2040": 78.04,
+    "rsi-economia": 79.45,
+    "tecnologia-normal": 78.54,
+    "cuello-de-computo": 71.05
+   }
+  },
+  {
+   "id": "accel3@2027-11",
+   "variable": "accel3",
+   "nombre": "Se informa una pendiente de capacidades de 3× o más sobre la de 2024–2025",
+   "unidad": "probabilidad",
+   "resuelve": "Próxima evaluación de METR o system card con AECI",
+   "url": "https://metr.org/blog/2026-11-05-anthropic-ai-rd-acceleration-assessment/",
+   "fecha": "2027-11",
+   "prob": 0.2306
+  }
+ ]
+}

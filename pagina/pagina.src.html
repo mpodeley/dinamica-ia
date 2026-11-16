@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Dinámica de sistemas para escenarios de IA</title>
+<style>
+/*FONTS*/
+/*TOKENS*/
+:root,[data-theme="dark"]{--s1:#3987e5;--s2:#d95926;--s3:#199e70;--s4:#c98500;--s5:#d55181;--s6:#0ca30c;--s7:#9085e9}
+[data-theme="light"]{--s1:#2a78d6;--s2:#eb6834;--s3:#1baf7a;--s4:#eda100;--s5:#e87ba4;--s6:#008300;--s7:#6250d6}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--pd-bg);color:var(--pd-text);font:400 1rem/var(--pd-lh-body) var(--pd-font-body);-webkit-text-size-adjust:100%}
+main,header.top,footer{max-width:var(--pd-maxw);margin:0 auto;padding:0 var(--pd-gutter)}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:1rem;padding-bottom:1rem;font:500 var(--pd-fs-cap)/1.4 var(--pd-font-mono);letter-spacing:var(--pd-track-mono);text-transform:uppercase;color:var(--pd-text-muted)}
+header.top nav{display:flex;flex-wrap:wrap;gap:.25rem 1rem}
+a{color:var(--pd-link);text-underline-offset:.18em}
+header.top a{color:inherit;text-decoration:none}
+header.top a:hover{color:var(--pd-text)}
+button,select,input{font:inherit;color:inherit}
+#tema{background:none;border:1px solid var(--pd-border);border-radius:var(--pd-r-pill);padding:.3rem .8rem;cursor:pointer;font:inherit;letter-spacing:inherit;text-transform:inherit;white-space:nowrap}
+h1{font:500 var(--pd-fs-h1)/var(--pd-lh-tight) var(--pd-font-display);margin:3rem 0 1rem;max-width:22ch;text-wrap:balance}
+h2{font:500 var(--pd-fs-h2)/var(--pd-lh-tight) var(--pd-font-display);margin:0 0 1rem;text-wrap:balance}
+h3{font:500 var(--pd-fs-h3)/1.3 var(--pd-font-display);margin:2rem 0 .5rem}
+section{padding:var(--pd-section) 0 0}
+p,ul.prose{max-width:44rem;margin:0 0 1rem}
+.lead{font-size:var(--pd-fs-lead);color:var(--pd-text-muted);max-width:42rem}
+small{display:block;font-size:var(--pd-fs-cap);color:var(--pd-text-faint);line-height:1.4}
+td small{margin-top:.15rem}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1rem;margin:2.5rem 0 0}
+.tile{background:var(--pd-surface);border:1px solid var(--pd-border-soft);border-radius:var(--pd-r-2);padding:1.1rem 1.2rem}
+.tile .k{font:500 var(--pd-fs-cap)/1.4 var(--pd-font-mono);letter-spacing:var(--pd-track-mono);text-transform:uppercase;color:var(--pd-text-muted)}
+.tile .v{font:500 1.9rem/1.15 var(--pd-font-display);margin:.5rem 0 .4rem}
+.tile p{font-size:var(--pd-fs-sm);color:var(--pd-text-muted);margin:0}
+.findings{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1.5rem;margin-top:1.5rem}
+.findings article{border-top:2px solid var(--pd-primary);padding-top:.9rem}
+.findings article.limit{border-top-color:var(--pd-caveat)}
+.findings h3{margin:0 0 .4rem}
+.findings p{font-size:.95rem;color:var(--pd-text-muted)}
+.panel{background:var(--pd-data-bg);border:1px solid var(--pd-border-soft);border-radius:var(--pd-r-3);padding:1rem;margin:1.5rem 0}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1rem}
+.chips button{background:var(--pd-surface);border:1px solid var(--pd-border);border-radius:var(--pd-r-pill);padding:.35rem .8rem;font-size:var(--pd-fs-sm);cursor:pointer;display:inline-flex;align-items:center;gap:.4rem}
+.chips button[aria-pressed="true"]{border-color:var(--pd-text);box-shadow:inset 0 0 0 1px var(--pd-text)}
+.chips button:focus-visible,.dg-node:focus-visible,#tema:focus-visible{outline:2px solid var(--pd-focus);outline-offset:2px}
+.sw{display:inline-block;width:.7rem;height:.7rem;border-radius:50%;margin-right:.4rem;flex:none;vertical-align:baseline}
+.scroll{overflow-x:auto}
+.scroll table{min-width:38rem}
+.scroll td:first-child{min-width:12rem}
+#diagrama svg{display:block;width:100%;min-width:860px;height:auto}
+.dg-band{fill:var(--pd-surface-2);stroke:var(--pd-border-soft)}
+.dg-bandlabel{font:500 11px var(--pd-font-mono);letter-spacing:.06em;text-transform:uppercase;fill:var(--pd-text-faint)}
+.dg-edge{fill:none;stroke:var(--pd-text-faint);stroke-width:1.1;opacity:.55}
+.dg-head{fill:var(--pd-text-faint)}
+.dg-node{cursor:pointer}
+.dg-node rect{fill:var(--pd-surface);stroke:var(--pd-border);stroke-width:1.2}
+.dg-node.dg-stock rect{stroke:var(--pd-text-muted);stroke-width:1.8}
+.dg-node text{font:400 11.5px var(--pd-font-body);fill:var(--pd-text);pointer-events:none}
+.dg-node.is-dim,.dg-edge.is-dim{opacity:.16}
+.dg-edge.is-on{stroke:var(--pd-primary);stroke-width:2.4;opacity:1}
+.dg-node.is-on rect{stroke:var(--pd-primary);stroke-width:2.4}
+#diagrama-info,.note{font-size:var(--pd-fs-sm);color:var(--pd-text-muted);margin:.8rem 0 0;max-width:none}
+.dg-eq,code{font:400 .8rem/1.5 var(--pd-font-mono);color:var(--pd-text);overflow-wrap:anywhere}
+.explorer{display:grid;grid-template-columns:minmax(15rem,19rem) 1fr;gap:1.5rem;align-items:start}
+@media (max-width:820px){.explorer{grid-template-columns:1fr}}
+#perillas label{display:grid;grid-template-columns:1fr auto;gap:.1rem .5rem;font-size:var(--pd-fs-sm);margin-bottom:.75rem}
+#perillas output{font-family:var(--pd-font-mono);color:var(--pd-text-muted)}
+#perillas input,#perillas select{grid-column:1/-1;width:100%;accent-color:var(--pd-primary)}
+#perillas select{background:var(--pd-surface);border:1px solid var(--pd-border);border-radius:var(--pd-r-1);padding:.3rem}
+#hitos-corrida{list-style:none;padding:0;margin:1rem 0 0;font-size:var(--pd-fs-sm)}
+#hitos-corrida li{display:flex;justify-content:space-between;gap:1rem;padding:.3rem 0;border-top:1px solid var(--pd-border-soft)}
+#hitos-corrida span{color:var(--pd-text-muted)}
+#hitos-corrida b{font-weight:500;text-align:right;white-space:nowrap}
+.charts{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1.25rem 1rem}
+.chart{position:relative;min-width:0}
+.chart svg{display:block;width:100%;height:auto;touch-action:pan-y}
+.g-head{display:flex;flex-direction:column;margin-bottom:.3rem}
+.g-head strong{font:500 .92rem/1.3 var(--pd-font-body)}
+.g-head span{font-size:var(--pd-fs-cap);color:var(--pd-text-faint)}
+.g-grid{stroke:var(--pd-border-soft);stroke-width:1}
+.g-tick{font:400 10.5px var(--pd-font-mono);fill:var(--pd-text-faint)}
+.g-band{fill:var(--pd-text-muted);opacity:.2}
+.g-line{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.g-ref{stroke:var(--pd-caveat);stroke-dasharray:5 4;stroke-width:1.2}
+.g-reflabel{font:400 10.5px var(--pd-font-mono);fill:var(--pd-caveat)}
+.g-mark{fill:var(--pd-text);stroke:var(--pd-data-bg);stroke-width:2}
+.g-whisker{stroke:var(--pd-text-muted);stroke-width:1.2}
+.g-cross{stroke:var(--pd-text-faint);stroke-width:1}
+.g-interval{stroke:var(--pd-text-muted);stroke-width:7;stroke-linecap:round;opacity:.4}
+.g-median{fill:var(--pd-text)}
+.g-dot{stroke:var(--pd-data-bg);stroke-width:2}
+.g-rowlabel{font:400 12px var(--pd-font-body);fill:var(--pd-text)}
+.g-legend,.legend{display:flex;flex-wrap:wrap;gap:.2rem .9rem;font-size:var(--pd-fs-cap);color:var(--pd-text-muted);margin-top:.3rem}
+.g-legend i,.g-tip i,.legend i{display:inline-block;width:.9rem;height:3px;border-radius:2px;margin-right:.35rem;vertical-align:middle}
+.legend i.sw{height:.7rem;width:.7rem}
+i.g-key-band{height:.6rem;background:var(--pd-text-muted);opacity:.3}
+i.g-key-mark{width:.55rem;height:.55rem;border-radius:50%;background:var(--pd-text)}
+i.g-key-interval{height:.45rem;background:var(--pd-text-muted);opacity:.5;border-right:3px solid var(--pd-text)}
+.g-tip{position:absolute;top:2.6rem;z-index:2;min-width:150px;background:var(--pd-surface);border:1px solid var(--pd-border);border-radius:var(--pd-r-1);padding:.4rem .55rem;font-size:var(--pd-fs-cap);pointer-events:none;box-shadow:var(--pd-shadow-card)}
+.g-tip-t{color:var(--pd-text-muted);margin-bottom:.15rem}
+.g-tip b{font-weight:500;font-family:var(--pd-font-mono)}
+table{border-collapse:collapse;width:100%;font-size:var(--pd-fs-sm)}
+th{font:500 var(--pd-fs-cap)/1.35 var(--pd-font-mono);letter-spacing:.03em;color:var(--pd-text-muted);text-align:left;vertical-align:bottom;padding:.4rem .7rem .4rem 0;border-bottom:1px solid var(--pd-border)}
+td{padding:.5rem .7rem .5rem 0;border-bottom:1px solid var(--pd-border-soft);vertical-align:top}
+td.n{font-family:var(--pd-font-mono);font-size:.8rem;white-space:nowrap}
+td.w{white-space:nowrap}
+td b{font-weight:500;color:var(--pd-caveat)}
+tr.obs td{color:var(--pd-text-muted);font-style:italic}
+table.eq td:first-child{min-width:11rem}
+details{margin:1rem 0;border-top:1px solid var(--pd-border-soft);padding-top:.8rem}
+summary{cursor:pointer;font-weight:500}
+details .scroll{margin-top:.8rem}
+.formula{font:400 .9rem/1.9 var(--pd-font-mono);background:var(--pd-data-bg);border:1px solid var(--pd-border-soft);border-radius:var(--pd-r-2);padding:.8rem 1rem;overflow-x:auto;white-space:nowrap;max-width:44rem;margin:0 0 1rem}
+ul.prose{padding-left:1.1rem}
+ul.prose li{margin-bottom:.6rem}
+#fuentes{list-style:none;padding:0;font-size:var(--pd-fs-sm);max-width:52rem}
+#fuentes li{padding:.5rem 0;border-top:1px solid var(--pd-border-soft)}
+#fuentes small{display:inline;margin-left:.3rem}
+footer{padding-top:3rem;padding-bottom:3rem;margin-top:var(--pd-section);border-top:1px solid var(--pd-border-soft);font-size:var(--pd-fs-sm);color:var(--pd-text-muted)}
+</style>
+</head>
+<body>
+<header class="top">
+  <nav aria-label="Secciones"><a href="#modelo">Modelo</a><a href="#explorador">Explorador</a><a href="#hoy">Dónde estamos</a><a href="#hitos">Hitos</a><a href="#predicciones">Predicciones</a><a href="#metodo">Método</a><a href="#limitaciones">Limitaciones</a></nav>
+  <button id="tema" type="button">Tema</button>
+</header>
+<main>
+  <h1>Dinámica de sistemas para escenarios de IA</h1>
+  <p class="lead">Un modelo de stocks, flujos y lazos de realimentación que expresa AI 2027, AI 2040 y la evaluación de METR sobre automejora recursiva con las mismas ecuaciones. Cada escenario es un juego de parámetros. Lo medido en 2026 pondera {{corridas}} corridas, y de ahí salen las predicciones.</p>
+
+  <div class="tiles">
+    <div class="tile"><div class="k">Ganancia del lazo de automejora, hoy</div><div class="v">{{g_med}}</div><p>Intervalo de 80%: {{g_lo}}–{{g_hi}}. Por encima de 1 el software se acelera solo. Probabilidad de que ya lo haga: {{g_p1}}.</p></div>
+    <div class="tile"><div class="k">Multiplicador de I+D de 25×</div><div class="v">{{m25_med}}</div><p>Mediana ponderada. Llega antes de fin de 2027 en {{m25_p2027}} de las corridas.</p></div>
+    <div class="tile"><div class="k">Multiplicador de I+D de 2000×</div><div class="v">{{m2000_med}}</div><p>Mediana ponderada. Llega antes de fin de 2030 en {{m2000_p2030}} de las corridas.</p></div>
+    <div class="tile"><div class="k">Trabajo cognitivo automatizable al 99%</div><div class="v">{{eco_med}}</div><p>Mediana ponderada. Antes de fin de 2030 en {{eco_p2030}} de las corridas.</p></div>
+  </div>
+
+  <div class="findings">
+    <article><h3>El lazo todavía necesita insumos externos</h3><p>La ganancia del lazo de automejora supera 1 antes de fin de 2027 en {{loop_p2027}} de las corridas, y antes de fin de 2030 en {{loop_p2030}}. Hasta entonces la aceleración depende de que sigan creciendo el cómputo y el plantel.</p></article>
+    <article><h3>Sin cómputo nuevo, el despegue se posterga</h3><p>Con los parámetros centrales el multiplicador de 25× llega a {{m25_central}}. Con el cómputo y el plantel congelados desde 2027, {{m25_congelado}}, y el de 2000× {{m2000_congelado}}. El cómputo mundial hoy crece cerca de 2.5× por año.</p></article>
+    <article class="limit"><h3>El modelo viene quedándose corto</h3><p>Ponderado con datos hasta 2025, su intervalo de 80% contiene {{retro_dentro}} de {{retro_total}} mediciones de 2026; las otras {{retro_arriba}} salieron por encima. Ya ponderado con 2026, da una pendiente de capacidades de {{slope_lo}}–{{slope_hi}} veces la anterior, y METR midió 1.9.</p></article>
+  </div>
+
+  <section id="modelo">
+    <h2>El modelo</h2>
+    <p>Son {{n_stocks}} stocks, {{n_aux}} variables auxiliares y {{n_params}} parámetros en cuatro capas: el núcleo técnico, los cuellos físicos, la economía y el empleo, y la seguridad y la gobernanza. El núcleo sigue la forma del modelo simple de METR, con sustitución entre tareas y criterio de investigación como en el de AI Futures. La ganancia del lazo se calcula como en el trabajo sobre economía de la automejora.</p>
+    <p>Cada flecha del diagrama se verifica contra las ecuaciones que se ejecutan: una prueba falla si la variable de destino no depende de la de origen.</p>
+    <div class="panel">
+      <div class="chips" id="lazos" role="group" aria-label="Lazos de realimentación"></div>
+      <div class="scroll" id="diagrama"></div>
+      <p id="diagrama-info">Cada caja es un stock y cada píldora una variable auxiliar. Tocar una muestra su ecuación.</p>
+    </div>
+  </section>
+
+  <section id="explorador">
+    <h2>Explorador</h2>
+    <p>Cada botón carga los parámetros de un escenario. Las perillas son los ocho parámetros en los que más difieren. La franja gris es el rango de 10 a 90% de las corridas ponderadas.</p>
+    <div class="panel">
+      <div class="chips" id="presets" role="group" aria-label="Escenarios"></div>
+      <p class="note" id="tesis" style="margin:0 0 1rem"></p>
+      <div class="explorer">
+        <div>
+          <div id="perillas"></div>
+          <h3 style="margin-top:1rem">Hitos de esta corrida</h3>
+          <ul id="hitos-corrida"></ul>
+          <p class="note" id="exo" hidden>Este escenario fija el crecimiento del cómputo por fuera, así que las fábricas y la potencia no intervienen.</p>
+        </div>
+        <div class="charts" id="graficos"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hoy">
+    <h2>Dónde estamos</h2>
+    <p>Al 16 de noviembre de 2026, lo medido que el modelo tiene que reproducir son cuatro cosas: el ritmo del índice de capacidades de Epoch (ECI), la aceleración que METR midió en Anthropic, los ingresos de los laboratorios y la forma de la curva de horizontes temporales. Cada corrida pesa según cuánto se acerca a esas mediciones.</p>
+    <p>La serie de horizontes de METR termina en abril de 2026: la batería satura por encima de 16 horas. El modelo ajusta el nivel y la pendiente de esa curva en cada corrida, así que de ella solo usa la curvatura.</p>
+    <div class="panel"><div class="chart" id="c-horizonte"></div></div>
+    <h3>Lo medido contra el modelo ponderado</h3>
+    <div class="scroll" id="ajuste"></div>
+    <p class="note">La medición de METR queda por encima del rango del modelo. Para reproducirla hace falta una automatización que suba más rápido durante 2026 que la que admiten los rangos previos.</p>
+    <h3>Qué dice cada escenario sobre 2026</h3>
+    <div class="scroll" id="escenarios"></div>
+    <p class="note">El peso relativo compara cada escenario con dos observables de 2026 y parte de pesos iguales. Es orientativo: un escenario escrito en 2025 se evalúa acá por una emulación.</p>
+  </section>
+
+  <section id="hitos">
+    <h2>Cuándo llega cada hito</h2>
+    <p>Los hitos se definen sobre variables del modelo, iguales para todos los escenarios. Los multiplicadores de 5×, 25×, 250× y 2000× son los que AI 2027 asocia al programador sobrehumano, al investigador sobrehumano, al investigador superinteligente y a la superinteligencia.</p>
+    <div class="panel">
+      <div class="chart" id="c-hitos"></div>
+      <div class="legend" id="leyenda-hitos"></div>
+    </div>
+    <details><summary>Ver como tabla</summary><div class="scroll" id="tabla-hitos"></div></details>
+  </section>
+
+  <section id="predicciones">
+    <h2>Predicciones</h2>
+    <p>Emisión {{emision}}, congelada el 16 de noviembre de 2026: {{n_pred}} predicciones a febrero, mayo y noviembre de 2027 sobre variables que publica un tercero. Una emisión no se reescribe. Cuando una fecha se cumple, el valor publicado entra a un archivo y la tabla muestra si cayó dentro del intervalo.</p>
+    <p>La pendiente de capacidades se pronostica anclada a la última medición de METR, 1.9. El modelo aporta el cambio desde octubre de 2026, y el intervalo suma el error de esa medición.</p>
+    <div class="scroll" id="pred-tabla"></div>
+    <h3>Qué mirar</h3>
+    <p>Las variables ordenadas por cuánto difieren los escenarios a un año. Una medición en la parte alta de la tabla mueve más los pesos que una en la parte baja.</p>
+    <div class="scroll" id="mirar"></div>
+    <h3>Retroprueba</h3>
+    <p>El mismo procedimiento con las mediciones cortadas en diciembre de 2025, contra lo que pasó en 2026. El intervalo contiene {{retro_dentro}} de {{retro_total}} mediciones.</p>
+    <div class="scroll" id="retro"></div>
+  </section>
+
+  <section id="metodo">
+    <h2>Método</h2>
+    <p>La capacidad se mide en órdenes de magnitud de cómputo efectivo sobre enero de 2026: cómputo por eficiencia de software. La fracción de la I+D que la IA puede hacer sube con la capacidad por una curva logística. El trabajo humano se concentra en las tareas restantes y el de la IA cubre las otras, con una elasticidad de sustitución entre tareas. Ese trabajo se combina con el cómputo de experimentos para dar el esfuerzo de I+D.</p>
+    <div class="formula">dS/dt = k · R<sup>λ</sup> · S<sup>1−β</sup> · margen &nbsp;&nbsp;·&nbsp;&nbsp; R = CES<sub>σ</sub>(tareas(f, L, IA), C) · criterio &nbsp;&nbsp;·&nbsp;&nbsp; f = logística(p)</div>
+    <p>La ganancia del lazo se obtiene perturbando el software con el cómputo y el plantel fijos. Vale más que 1 cuando esa perturbación acelera el crecimiento del software.</p>
+    <p>Se muestrean {{n_priors}} parámetros de rangos previos y se integra cada corrida de 2026 a 2040. El peso de cada corrida es su verosimilitud frente a las mediciones, con errores en escala logarítmica. De {{corridas}} corridas quedan {{ess}} efectivas.</p>
+    <p>Cada escenario es una emulación: sus parámetros libres se ajustan para reproducir las fechas que publica la fuente y los ingresos medidos en 2026. El de METR coincide con una reimplementación independiente de sus ecuaciones: 99% de automatización en {{kwa_ref}} en ambas. En el resto el mayor desvío es de {{repro_max}} años.</p>
+    <details><summary>Reproducción de cada fuente</summary><div class="scroll" id="reproduccion"></div></details>
+    <details><summary>Parámetros, rangos y fuentes</summary><div class="scroll" id="parametros"></div></details>
+    <details><summary>Ecuaciones</summary><div class="scroll" id="ecuaciones"></div></details>
+  </section>
+
+  <section id="limitaciones">
+    <h2>Limitaciones</h2>
+    <ul class="prose">
+      <li>Las fechas de los hitos no se pueden leer como pronósticos calibrados. Los rangos previos de {{n_propios}} de los {{n_params}} parámetros son juicio propio, y la retroprueba muestra un sesgo hacia lo lento.</li>
+      <li>De una emulación no se puede concluir qué diría el modelo original de cada fuente fuera de las fechas ajustadas. AI 2027 y AI 2040 se leyeron por resumen; {{n_secundarias}} de las {{n_fuentes}} fuentes están sin cotejar contra el original.</li>
+      <li>La medición de METR cubre un laboratorio, con parte de la evidencia tachada por Anthropic, y admite una lectura de 1.4× en lugar de 1.9×. El modelo ponderado no la reproduce.</li>
+      <li>La capa de seguridad y gobernanza no tiene datos que la calibren. Sus curvas ilustran lazos; de ellas no sale ninguna predicción.</li>
+      <li>La capa económica supone ingresos proporcionales al trabajo desplegado. "Mitad del trabajo cognitivo desplegado en IA" no es una proyección de empleo.</li>
+      <li>El horizonte temporal dejó de medirse en la frontera, así que el modelo no puede ubicar los modelos de fines de 2026 sobre esa curva.</li>
+      <li>El modelo no incluye automatización de la I+D de hardware, robótica ni más de dos actores.</li>
+    </ul>
+  </section>
+
+  <section id="fuentes-s">
+    <h2>Fuentes</h2>
+    <ul id="fuentes"></ul>
+  </section>
+</main>
+<footer>Matías Podeley · 16 de noviembre de 2026 · Emisión de predicciones {{emision}} · Motor, datos y pruebas en el repositorio <code>dinamica-ia</code>.</footer>
+<script>const DATA = /*DATA*/;</script>
+<script>/*MOTOR*/</script>
+<script>/*GRAFICOS*/</script>
+<script>/*DIAGRAMA*/</script>
+<script>/*APP*/</script>
+</body>
+</html>

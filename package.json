@@ -1,0 +1,9 @@
+{
+  "name": "dinamica-ia",
+  "private": true,
+  "description": "Modelo de dinámica de sistemas para escenarios de IA",
+  "scripts": {
+    "test": "node --test tests/",
+    "build": "node pagina/build.mjs"
+  }
+}

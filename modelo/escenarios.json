@@ -1,0 +1,386 @@
+{
+  "kwa-2032": {
+    "nombre": "METR, modelo simple",
+    "fuente": "kwa2026",
+    "tesis": "Con las tendencias de cómputo y algoritmos de hoy, y sin sustitución entre tareas, la I+D de IA queda automatizada al 99% hacia 2032.",
+    "params": {
+      "gS0": 5,
+      "f0": 0.375,
+      "width": 1.238,
+      "fmax": 1,
+      "rhoTasks": -50,
+      "aiLabor0": 1000000,
+      "laborShare": 0.235,
+      "sigma": 1,
+      "lambda": 0.9,
+      "beta": 0.65,
+      "ceiling": 1000000000,
+      "taste": 1,
+      "chi": 1,
+      "gCHist": 2.6,
+      "laborRates": [
+        [2026, 2],
+        [2029, 2],
+        [2029.001, 1.1]
+      ],
+      "computeExo": [
+        [2026, 2.6],
+        [2029, 2.6],
+        [2029.001, 2],
+        [2030.5, 2],
+        [2057.5, 1.277],
+        [2058, 1.25]
+      ],
+      "rhoRace": 0,
+      "sReg": 0,
+      "kInc": 0,
+      "difMomentum": 4.935
+    },
+    "blancos": [
+      {
+        "var": "Y",
+        "t": 2026.25,
+        "valor": 55
+      },
+      {
+        "var": "Y",
+        "t": 2026.64,
+        "valor": 105
+      }
+    ],
+    "libres": {
+      "difMomentum": [1.2, 25]
+    }
+  },
+  "ai-2027": {
+    "nombre": "AI 2027",
+    "fuente": "ai2027",
+    "tesis": "La automatización de la programación en 2027 dispara un despegue de un año hasta la superinteligencia, con cómputo casi fijo.",
+    "params": {
+      "gS0": 4,
+      "f0": 0.2,
+      "width": 1.5,
+      "fmax": 1.05,
+      "rhoTasks": -0.3,
+      "aiLabor0": 30,
+      "laborShare": 0.5,
+      "sigma": 1.5,
+      "lambda": 1,
+      "beta": 0.3241,
+      "ceiling": 14,
+      "taste": 10.58,
+      "tasteOffset": 0,
+      "computeExo": [
+        [2026, 2.25]
+      ],
+      "laborRates": [
+        [2026, 1.5]
+      ],
+      "tauDif": 2,
+      "ecoGap": 1,
+      "rhoRace": 0.8,
+      "kInc": 0.02,
+      "xi": 0.95,
+      "tauLeak": 1,
+      "difMomentum": 2.125
+    },
+    "blancos": [
+      {
+        "var": "mult",
+        "t": 2026.1,
+        "valor": 1.5
+      },
+      {
+        "hito": "m5",
+        "t": 2027.2
+      },
+      {
+        "hito": "m25",
+        "t": 2027.65
+      },
+      {
+        "hito": "m250",
+        "t": 2027.85
+      },
+      {
+        "hito": "m2000",
+        "t": 2028.1
+      },
+      {
+        "var": "Y",
+        "t": 2026.25,
+        "valor": 55
+      },
+      {
+        "var": "Y",
+        "t": 2026.64,
+        "valor": 105
+      }
+    ],
+    "libres": {
+      "f0": [0.2, 0.95],
+      "width": [0.2, 1.5],
+      "rhoTasks": [-6, -0.3],
+      "taste": [1, 12],
+      "tasteOffset": [0, 3],
+      "beta": [0.2, 1],
+      "difMomentum": [1.2, 25]
+    }
+  },
+  "ai-futures-2026": {
+    "nombre": "AI Futures, nov-2026",
+    "fuente": "q35",
+    "tesis": "La aceleración medida por METR adelanta el investigador sobrehumano a 2027 y la IA que domina a los mejores expertos a 2028.",
+    "params": {
+      "gS0": 4,
+      "f0": 0.2932,
+      "width": 0.6451,
+      "fmax": 1.05,
+      "rhoTasks": -0.5,
+      "aiLabor0": 30,
+      "laborShare": 0.2576,
+      "sigma": 1,
+      "lambda": 0.9,
+      "beta": 0.5,
+      "ceiling": 12,
+      "taste": 1.989,
+      "tasteOffset": 0.1654,
+      "hSuper": 0.92,
+      "tauDif": 3,
+      "ecoGap": 1.876,
+      "ecoWidth": 1,
+      "rhoRace": 0.6,
+      "difMomentum": 3.795
+    },
+    "blancos": [
+      {
+        "var": "accel",
+        "t": 2026.85,
+        "valor": 1.7
+      },
+      {
+        "hito": "m25",
+        "t": 2027.62
+      },
+      {
+        "hito": "eco99",
+        "t": 2028.7
+      },
+      {
+        "var": "Y",
+        "t": 2026.25,
+        "valor": 55
+      },
+      {
+        "var": "Y",
+        "t": 2026.64,
+        "valor": 105
+      }
+    ],
+    "libres": {
+      "f0": [0.2, 0.97],
+      "width": [0.2, 1.5],
+      "taste": [1, 12],
+      "tasteOffset": [0, 3],
+      "ecoGap": [0, 4],
+      "laborShare": [0.15, 0.7],
+      "difMomentum": [1.2, 25]
+    }
+  },
+  "plan-a-2040": {
+    "nombre": "AI 2040: Plan A",
+    "fuente": "ai2040",
+    "tesis": "Un acuerdo verificado entre Estados Unidos y China en 2029 frena el avance, lo mantiene en rango humano y posterga la superinteligencia a 2040.",
+    "params": {
+      "gS0": 4,
+      "f0": 0.3956,
+      "width": 1.448,
+      "fmax": 1.05,
+      "rhoTasks": -1,
+      "aiLabor0": 30,
+      "laborShare": 0.4,
+      "sigma": 1,
+      "lambda": 0.9,
+      "beta": 0.5,
+      "ceiling": 12,
+      "taste": 1.128,
+      "tasteOffset": 0.1079,
+      "tauDif": 3,
+      "ecoGap": 0.6091,
+      "ecoWidth": 1,
+      "dealT": 2029.2,
+      "dealPause": 0.5,
+      "dealSafety": 0.4,
+      "dealBrake": 0.2169,
+      "dealCompute": 1.25,
+      "difMomentum": 3.071
+    },
+    "blancos": [
+      {
+        "hito": "auto99",
+        "t": 2030,
+        "con": {
+          "dealT": null
+        }
+      },
+      {
+        "hito": "m2000",
+        "t": 2031,
+        "con": {
+          "dealT": null
+        }
+      },
+      {
+        "hito": "eco99",
+        "t": 2033
+      },
+      {
+        "hito": "m2000",
+        "t": 2040
+      },
+      {
+        "var": "Y",
+        "t": 2026.25,
+        "valor": 55
+      },
+      {
+        "var": "Y",
+        "t": 2026.64,
+        "valor": 105
+      }
+    ],
+    "libres": {
+      "f0": [0.1, 0.9],
+      "width": [0.2, 1.5],
+      "taste": [1, 12],
+      "tasteOffset": [0, 3],
+      "dealBrake": [0.01, 1],
+      "ecoGap": [0, 4],
+      "difMomentum": [1.2, 25]
+    }
+  },
+  "rsi-economia": {
+    "nombre": "Economía de la automejora",
+    "fuente": "rsi2026",
+    "tesis": "El lazo todavía no se autosostiene: la elasticidad del esfuerzo de I+D a la capacidad está por debajo del umbral, aunque sube.",
+    "params": {
+      "gS0": 3,
+      "f0": 0.2096,
+      "width": 0.6733,
+      "fmax": 1,
+      "rhoTasks": -0.3,
+      "laborShare": 0.8,
+      "sigma": 1,
+      "lambda": 1,
+      "beta": 1,
+      "taste": 1,
+      "rhoRace": 0,
+      "sReg": 0,
+      "kInc": 0,
+      "difMomentum": 5.225
+    },
+    "blancos": [
+      {
+        "var": "gain",
+        "t": 2026.55,
+        "valor": 0.6
+      },
+      {
+        "var": "mult",
+        "t": 2026.3,
+        "valor": 2.5
+      },
+      {
+        "var": "Y",
+        "t": 2026.25,
+        "valor": 55
+      },
+      {
+        "var": "Y",
+        "t": 2026.64,
+        "valor": 105
+      }
+    ],
+    "libres": {
+      "rhoTasks": [-8, -0.3],
+      "f0": [0.2, 0.9],
+      "laborShare": [0.2, 0.8],
+      "width": [0.4, 1.6],
+      "difMomentum": [1.2, 25]
+    }
+  },
+  "tecnologia-normal": {
+    "nombre": "Tecnología normal",
+    "fuente": "normal-tech",
+    "tesis": "La capacidad avanza, pero la difusión en la economía lleva décadas y los cuellos de botella impiden una discontinuidad.",
+    "params": {
+      "gS0": 3,
+      "f0": 0.3,
+      "width": 1.6,
+      "fmax": 0.9,
+      "rhoTasks": -50,
+      "aiLabor0": 1000000,
+      "laborShare": 0.2,
+      "sigma": 0.5,
+      "beta": 0.9,
+      "taste": 1,
+      "tauDif": 20,
+      "ecoGap": 3,
+      "ecoWidth": 2.5,
+      "polFriction": 0.2,
+      "difMomentum": 25
+    },
+    "blancos": [
+      {
+        "var": "Y",
+        "t": 2026.25,
+        "valor": 55
+      },
+      {
+        "var": "Y",
+        "t": 2026.64,
+        "valor": 105
+      }
+    ],
+    "libres": {
+      "difMomentum": [1.2, 25]
+    }
+  },
+  "cuello-de-computo": {
+    "nombre": "Cuello de cómputo",
+    "fuente": "whitfill2025",
+    "tesis": "El progreso algorítmico depende del cómputo: si la expansión se frena, el avance de la capacidad se frena con ella.",
+    "params": {
+      "gS0": 3.5,
+      "f0": 0.4,
+      "width": 1.2,
+      "rhoTasks": -2,
+      "laborShare": 0.12,
+      "sigma": 0.4,
+      "beta": 0.8,
+      "taste": 1,
+      "computeExo": [
+        [2026, 2.6],
+        [2028, 1.8],
+        [2030, 1.4],
+        [2035, 1.2]
+      ],
+      "difMomentum": 4.921
+    },
+    "blancos": [
+      {
+        "var": "Y",
+        "t": 2026.25,
+        "valor": 55
+      },
+      {
+        "var": "Y",
+        "t": 2026.64,
+        "valor": 105
+      }
+    ],
+    "libres": {
+      "difMomentum": [1.2, 25]
+    }
+  }
+}

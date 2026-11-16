@@ -1,0 +1,212 @@
+{
+  "kwa-2032": [
+    {
+      "blanco": "Y en 2026.25",
+      "variante": "",
+      "fuente": 55,
+      "modelo": 53.59,
+      "desvio": 0.97
+    },
+    {
+      "blanco": "Y en 2026.64",
+      "variante": "",
+      "fuente": 105,
+      "modelo": 106.62,
+      "desvio": 1.02
+    }
+  ],
+  "ai-2027": [
+    {
+      "blanco": "mult en 2026.1",
+      "variante": "",
+      "fuente": 1.5,
+      "modelo": 1.47,
+      "desvio": 0.98
+    },
+    {
+      "blanco": "m5",
+      "variante": "",
+      "fuente": 2027.2,
+      "modelo": 2027.58,
+      "desvio": 0.38
+    },
+    {
+      "blanco": "m25",
+      "variante": "",
+      "fuente": 2027.65,
+      "modelo": 2027.77,
+      "desvio": 0.12
+    },
+    {
+      "blanco": "m250",
+      "variante": "",
+      "fuente": 2027.85,
+      "modelo": 2027.81,
+      "desvio": -0.04
+    },
+    {
+      "blanco": "m2000",
+      "variante": "",
+      "fuente": 2028.1,
+      "modelo": 2027.83,
+      "desvio": -0.27
+    },
+    {
+      "blanco": "Y en 2026.25",
+      "variante": "",
+      "fuente": 55,
+      "modelo": 48.72,
+      "desvio": 0.89
+    },
+    {
+      "blanco": "Y en 2026.64",
+      "variante": "",
+      "fuente": 105,
+      "modelo": 118.74,
+      "desvio": 1.13
+    }
+  ],
+  "ai-futures-2026": [
+    {
+      "blanco": "accel en 2026.85",
+      "variante": "",
+      "fuente": 1.7,
+      "modelo": 1.7,
+      "desvio": 1
+    },
+    {
+      "blanco": "m25",
+      "variante": "",
+      "fuente": 2027.62,
+      "modelo": 2027.69,
+      "desvio": 0.07
+    },
+    {
+      "blanco": "eco99",
+      "variante": "",
+      "fuente": 2028.7,
+      "modelo": 2028.7,
+      "desvio": 0
+    },
+    {
+      "blanco": "Y en 2026.25",
+      "variante": "",
+      "fuente": 55,
+      "modelo": 55,
+      "desvio": 1
+    },
+    {
+      "blanco": "Y en 2026.64",
+      "variante": "",
+      "fuente": 105,
+      "modelo": 105.01,
+      "desvio": 1
+    }
+  ],
+  "plan-a-2040": [
+    {
+      "blanco": "auto99",
+      "variante": "sin acuerdo",
+      "fuente": 2030,
+      "modelo": 2029.57,
+      "desvio": -0.43
+    },
+    {
+      "blanco": "m2000",
+      "variante": "sin acuerdo",
+      "fuente": 2031,
+      "modelo": 2031.25,
+      "desvio": 0.25
+    },
+    {
+      "blanco": "eco99",
+      "variante": "",
+      "fuente": 2033,
+      "modelo": 2033.1,
+      "desvio": 0.1
+    },
+    {
+      "blanco": "m2000",
+      "variante": "",
+      "fuente": 2040,
+      "modelo": 2039.88,
+      "desvio": -0.13
+    },
+    {
+      "blanco": "Y en 2026.25",
+      "variante": "",
+      "fuente": 55,
+      "modelo": 50.6,
+      "desvio": 0.92
+    },
+    {
+      "blanco": "Y en 2026.64",
+      "variante": "",
+      "fuente": 105,
+      "modelo": 111.01,
+      "desvio": 1.06
+    }
+  ],
+  "rsi-economia": [
+    {
+      "blanco": "gain en 2026.55",
+      "variante": "",
+      "fuente": 0.6,
+      "modelo": 0.6,
+      "desvio": 1
+    },
+    {
+      "blanco": "mult en 2026.3",
+      "variante": "",
+      "fuente": 2.5,
+      "modelo": 2.5,
+      "desvio": 1
+    },
+    {
+      "blanco": "Y en 2026.25",
+      "variante": "",
+      "fuente": 55,
+      "modelo": 54.35,
+      "desvio": 0.99
+    },
+    {
+      "blanco": "Y en 2026.64",
+      "variante": "",
+      "fuente": 105,
+      "modelo": 106.23,
+      "desvio": 1.01
+    }
+  ],
+  "tecnologia-normal": [
+    {
+      "blanco": "Y en 2026.25",
+      "variante": "",
+      "fuente": 55,
+      "modelo": 56.5,
+      "desvio": 1.03
+    },
+    {
+      "blanco": "Y en 2026.64",
+      "variante": "",
+      "fuente": 105,
+      "modelo": 95.88,
+      "desvio": 0.91
+    }
+  ],
+  "cuello-de-computo": [
+    {
+      "blanco": "Y en 2026.25",
+      "variante": "",
+      "fuente": 55,
+      "modelo": 53.52,
+      "desvio": 0.97
+    },
+    {
+      "blanco": "Y en 2026.64",
+      "variante": "",
+      "fuente": 105,
+      "modelo": 106.7,
+      "desvio": 1.02
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+fuentes/
+node_modules/
+__pycache__/
+analisis/*.log
