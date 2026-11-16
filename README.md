@@ -5,6 +5,8 @@ el modelo simple de METR, la economía de la automejora, tecnología normal, cue
 mismas ecuaciones, ubicar dónde estamos y emitir predicciones contrastables.
 
 El entregable es `out/dinamica-ia.html`: un solo archivo, se abre desde el disco sin red.
+`index.html` es la misma página en la raíz, que es lo que sirve GitHub Pages:
+<https://mpodeley.github.io/dinamica-ia/>. Publicar es correr `node pagina/build.mjs`, commitear y pushear.
 
 ## Cómo se actualiza
 

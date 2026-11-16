@@ -75,5 +75,6 @@ const inline = { '/*FONTS*/': fonts, '/*TOKENS*/': tokens, '/*DATA*/': JSON.stri
 for (const [mark, body] of Object.entries(inline)) { if (!html.includes(mark)) throw new Error(`falta el marcador ${mark}`); html = html.replace(mark, () => body); }
 await mkdir(join(ROOT, 'out'), { recursive: true });
 await writeFile(join(ROOT, 'out', 'dinamica-ia.html'), html);
+await writeFile(join(ROOT, 'index.html'), html);   // GitHub Pages serves the repo root
 console.log(`out/dinamica-ia.html · ${(html.length / 1024).toFixed(0)} KB`);
 console.log(cifras);
